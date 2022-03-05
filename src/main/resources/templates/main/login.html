@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>login</title>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<link href="/css/base.css" rel="stylesheet" type="text/css"/>
+<link href="/css/login.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+	<div class="log_box">
+		<div class="home_btn">
+			<a href="/"><img src="/img/home.png" width="200px" height="100px" id="home_btn"></a>
+		</div>
+  	 <form method="POST" action="login">
+  		<table>
+  			<tr>
+  				<th>
+  					<div id="ind" class="login" >개인 로그인</div>
+  					<input id="hiddenlog"type="hidden" value="ind"/>
+  				</th>
+  				<th>
+  					<div id="ent" class="login">기업 로그인</div>
+  				</th>
+  				<th>
+  					<div id="easy" class="login" >간편 로그인</div>
+  				</th>
+  			</tr>
+  			<tr>
+  				<td colspan="3">
+  					<div class="log"><input class="txt_box" type="text" placeholder="아이디" autofocus/></div>
+  				</td>
+  			</tr>
+  			<tr>
+  				<td colspan="3">
+  					<div class="log"><input class="txt_box" type="password" placeholder=" 비밀번호"/></div>
+  				</td>
+  			</tr>
+  			<tr>
+  				<td colspan="3">
+  					 <label><input class="chk_box" type="checkbox"/> 로그인 유지</label>
+  				</td>
+  			</tr>
+  			<tr>
+  				<td colspan="3">
+  					<input class="btn" type="submit" value="로그인"/>
+  				</td>
+  			</tr>
+  			<tr>
+  				<td class="foot foot_left"><a href="#">아이디 찾기</a></td>
+  				<td class="foot"><a class="foot_center" href="#">&nbsp&nbsp&nbsp비밀번호 찾기&nbsp&nbsp&nbsp</a></td>
+  				<td class="foot foot_right"><a href="joinPage">회원가입</a></td>
+  			</tr>
+  		</table>
+  	 </form>
+  	</div>
+</body>
+<script>
+$(".login").click(function(){
+	if(log != $("#hiddenlog").val()) {
+		$("div").removeClass('login_click');
+	}
+	var log = $(this).attr('id');
+	$(this).addClass('login_click');
+	$("#hiddenlog").val(log);
+	
+	if(log == "easy") {
+		
+	}
+});
+</script>
+</html>

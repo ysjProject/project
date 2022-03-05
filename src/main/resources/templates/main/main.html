@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html 	xmlns:th="http://www.thymeleaf.org"
+	  	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+		xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+		layout:decorate="~{common/layout/defaultLayout}">
+<head>
+<meta charset="UTF-8">
+<title>test</title>
+<style>
+	
+</style>
+</head>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<link href="/css/base.css" rel="stylesheet" type="text/css"/>
+<link href="/css/main.css" rel="stylesheet" type="text/css"/>
+<link href="/css/swiper.css" rel="stylesheet" type="text/css"/>
+<body>
+ <header>
+	<div class="header_bar">
+		<ul>
+			<li><a href="/">홈</a></li>
+			<li><a href="ref">자료실</a></li>
+			<li><a href="record">기록실</a></li>
+			<li><a href="word">한마디</a></li>
+		</ul>
+	</div>
+ </header>
+<section>
+<div class="container">
+	<div class="nav_box">
+		<ul>
+			<li><a href="#">UP</a></li>
+			<li>=</li>
+			<li><a href="#">DOWN</a></li>
+		</ul>
+	</div>
+ <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+       <a href="resume"><img src="/img/list3-2.png" width="184px" height="450px" /></a>
+      </div>
+      <div class="swiper-slide">
+        <a href="ability"><img src="/img/coding.png" width="184px" height="450px"/></a>
+      </div>
+      <div class="swiper-slide">
+       <a href="certificate"><img src="/img/certificate2.png" width="184px" height="450px" /></a>
+      </div>
+      <div class="swiper-slide">
+        <a href="self"><img src="/img/list2-2.png" width="184px" height="450px" /></a>
+      </div>
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+  <div class="side_bar">
+  	<div class="log_box">
+  	 	<input class="btn" type="button" value="로그인" onclick="location.href='loginPage'">
+  	</div>
+  	<div>
+  		<table border="1">
+  			<tr>
+  				<th>님</th>
+  				<th><a href="#">회원정보 수정</a></th>
+  				<th><a href="#">로그아웃</a></th>
+  			</tr>
+  			<tr>
+  				<td>이력서 열람 기업</td>
+  				<td>면접 제안 기업</td>
+  				<td>코멘트</td>
+  			</tr>
+  		</table>
+  	</div>
+  </div>
+  <div class="low_box">
+	
+  </div>
+</div>
+ </section>
+<footer>
+ⓒ2022~  YSJ & BJJ 
+</footer>
+<script>
+var swiper = new Swiper(".mySwiper", {
+    spaceBetween: 30,
+    centeredSlides: true,
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+    },
+    effect: "fade",
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    pagination: {
+    	 el: ".swiper-pagination",
+         clickable: true,
+         renderBullet: function (index, className) {
+           return '<span class="' + className + '">' + (index + 1) + "</span>";
+         },
+       },
+     });
+    
+    $(window).on("scroll",function(){ 
+    	if($(window).scrollTop() > 0) {
+    		$("header").addClass("move");
+    	}else {
+    		$("header").removeClass("move");
+    	}
+    });
+    
+    $(".login").click(function(){
+			if(log != $("#hiddenlog").val()) {
+				$("div").removeClass('login_click');
+			}
+    		var log = $(this).attr('id');
+        	$(this).addClass('login_click');
+        	$("#hiddenlog").val(log);
+        	
+        	if(log == "easy") {
+        		
+        	}
+    });
+</script>
+</body>
+</html>

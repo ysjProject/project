@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html th:lang="${#locale.language}"
+		xmlns:th="http://www.thymeleaf.org"
+		xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+		xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<th:block th:replace="~{common/fragments/config :: config}"></th:block>
+</head>
+<body>
+	<div class="wrap">
+		<th:block layout:replace="~{common/fragments/header :: header}" />
+		<!-- contents -->
+		<div class="middle">
+			<th:block layout:replace="~{common/fragments/nav :: nav}" />
+			<th:block layout:fragment="content" />
+		</div>
+		<th:block layout:replace="~{common/fragments/footer :: footer}" />
+		<!-- contents -->
+	</div>
+</body>

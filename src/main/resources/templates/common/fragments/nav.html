@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html th:lang="${#locale.language}"
+		xmlns:th="http://www.thymeleaf.org"
+		xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+		xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<!-- 레프트 메뉴 -->
+<th:block layout:fragment="nav" >
+	<script th:inline="javascript">
+	/*<![CDATA[*/
+	var menuObj = JSON.parse(/*[[ ${session.menuJson} ]]*/);
+	$("nav#sideNav").ready(function() {
+		var w2uiSideBar = w2ui['sideNav'];
+		w2uiSideBar.nodes = menuObj;
+		w2uiSideBar.refresh();
+	});
+	/*]]*/
+	</script>
+	<nav id="sideNav"></nav>
+</th:block>
+<!-- // 레프트 메뉴 -->
+</html>

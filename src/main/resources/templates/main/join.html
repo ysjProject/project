@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>join</title>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<link href="/css/base.css" rel="stylesheet" type="text/css"/>
+<link href="/css/join.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+	<div class="container">
+	 <form action="join" method="post">
+		<div class="content">
+			<div class="header">
+				<a href="/"><img src="/img/home.png" width="200px" height="100px" id="home_btn"></a>
+			</div>
+			<div class="message">
+			<p> 계정정보를 입력해 주세요.
+			</div>
+			<div class="join_label">이메일</div>
+			<div class="join_content">
+			<div class="txt">
+			<input type="text" class="textbox" id="join_id">
+			</div>
+			<input type="button" class="btn" id="cer_btn" value="인증번호 전송">
+			</div>
+			
+			<div class="join_label">인증번호</div>
+			<div class="join_content">
+			<div class="txt dis_txt">
+			<input type="text" Disabled class="textbox" id="certify_num">
+			</div>
+			<input type="button" class="btn" value="인증 확인" onclick="location.href='check'">
+			</div>
+			
+			<div class="join_label">비밀번호 <a class="dis" href="#">&nbsp?&nbsp</a></div>
+			<div class="join_content">
+			<div class="txt_pw">
+			<input type="password" class="textbox" id="join_pw">
+			</div>
+			</div>
+			
+			<div class="join_label">비밀번호 확인</div>
+			<div class="join_content">
+			<div class="txt_pw">
+			<input type="password" class="textbox" id="join_repw">
+			</div>
+			</div>
+			
+			<div class="join_label">전화번호</div>
+			<div class="join_content">
+			<div class="txt_phone">
+			<input type="number" class="textbox" id="join_phone" placeholder="-를 제외하고 작성해주세요">
+			</div>
+			</div>
+			
+			<div class="join_content">
+			<button id="join_btn" type="submit">회원가입</button>
+			</div>
+		</div>
+	 </form>
+	 	<div class="ex ex_view">
+		<p>안전한 비밀번호 설정 안내
+		<ul>
+			<li>
+			 대문자, 소문자, 특수문자(@,!) 를 포함하여 최소 8글자 이상 입력해주세요.
+			</li>
+			<li>
+			 전화번호,이메일,생년월일,연속된 숫자/문자 등 타인이 유추하기 쉬운 비밀번호의 사용은 삼가해주세요. 
+			</li>
+			<li>
+			 비밀번호는 3~6개월에 한번씩 변경하는것이 안전합니다.
+			</li>
+		</ul>
+	</div>
+	</div>
+</body>
+<script>
+	$(".dis").hover(function(){
+		$(".ex").removeClass("ex_view");
+	},function(){
+		$(".ex").addClass("ex_view");
+	});
+	
+	$("#cer_btn").click(function(){
+		$("#certify_num").removeAttr("disabled");
+		$(".txt").removeClass("dis_txt");
+	});
+</script>
+</html>

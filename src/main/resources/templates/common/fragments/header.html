@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html th:lang="${#locale.language}"
+		xmlns:th="http://www.thymeleaf.org"
+		xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+		xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+	<!-- top -->
+	<header layout:fragment="header" class="top">
+		<script>
+			$("header").ready(function() {
+				$("#logout").click(function() {
+					document.logoutFrm.submit();
+				});
+			});
+		</script>
+
+		<div class="logo"><div class="logo_pic"><img th:src="@{/images/logo.svg}"></div><div class="logo_text">[[ #{company.title} ]]</div></div>
+		<div class="line_map"><img src="images/icon_home.svg"><span class="line_text"><span>&gt;</span>시스템관리<span>&gt;</span>사용자 메뉴관리<span>&gt;</span>사용자별 권한정보</span></div>
+		<ul>
+			<li class="bg03" th:if="${@environment.getProperty('tjs.app.mstsc')}"><a href="#">[[ #{common.mstsc} ]]</a></li>
+			<li class="bg01">
+				<span id="login-user-id">[<th:block sec:authentication="principal.userMst.userId" />]</span>
+				<th:block sec:authentication="principal.userMst.userNm" />
+			</li>
+			<li class="bg02"><a id="logout" href="#">[[ #{login.logout-button} ]]</a></li>
+		</ul>
+		<form name="logoutFrm" method="post" th:action="@{/logout}"></form>
+	</header>
+	<!-- // top -->
+</html>

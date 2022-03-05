@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.oktjs.main.mapper.MainMapper">
+
+	<select id="selectList" parameterType="com.oktjs.main.model.Main" resultType="com.oktjs.main.model.Main">
+		SELECT
+			COL1,
+			COL2,
+			COL3,
+			COL4,
+			COL5
+		FROM TEST
+	</select>
+
+	<select id="selectByCol1" parameterType="com.oktjs.main.model.Main" resultType="com.oktjs.main.model.Main">
+		SELECT
+			COL1,
+			COL2,
+			COL3,
+			COL4,
+			COL5
+		FROM TEST
+		WHERE COL1 = #{col1}
+	</select>
+
+	<insert id="insert" parameterType="com.oktjs.main.model.Main">
+		INSERT INTO TEST (
+			COL1,
+			COL2,
+			COL3,
+			COL4,
+			COL5
+		) VALUES (
+			#{col1},
+			#{col2},
+			#{col3},
+			#{col4},
+			#{col5}
+		)
+	</insert>
+
+	<update id="update" parameterType="com.oktjs.main.model.Main">
+		UPDATE TEST
+		SET
+			COL2 = #{col2},
+			COL3 = #{col3},
+			COL4 = #{col4},
+			COL5 = #{col5}
+		WHERE COL1 = #{col1}
+	</update>
+
+	<delete id="delete" parameterType="com.oktjs.main.model.Main">
+		DELETE FROM TEST WHERE COL1 = #{col1}
+	</delete>
+</mapper>

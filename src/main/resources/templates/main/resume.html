@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이력서</title>
+</head>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<link href="/css/base.css" rel="stylesheet" type="text/css"/>
+<link href="/css/main.css" rel="stylesheet" type="text/css"/>
+<body>
+ <header>
+	<div class="header_bar">
+		<ul>
+			<li><a href="/">홈</a></li>
+			<li><a href="ref">자료실</a></li>
+			<li><a href="record">기록실</a></li>
+			<li><a href="word">한마디</a></li>
+		</ul>
+	</div>
+ </header>
+ <section>
+ </section>
+ <footer>
+ⓒ2022~  YSJ & BJJ 
+</footer>
+<script>
+$(window).on("scroll",function(){ 
+	if($(window).scrollTop() > 0) {
+		$("header").addClass("move");
+	}else {
+		$("header").removeClass("move");
+	}
+});
+</script>
+</body>
+</html>
