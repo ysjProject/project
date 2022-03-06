@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html 	xmlns:th="http://www.thymeleaf.org"
+<html xmlns:th="http://www.thymeleaf.org"
 	  	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
 		xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 		layout:decorate="~{common/layout/defaultLayout}">
@@ -17,7 +17,22 @@
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/styles.css?version=1" rel="stylesheet" />
+        <!-- Jquery -->
+        <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <script>
+        $(document).ready(function(){
+	        //ajax 예시
+	        $.ajax({
+				url: "/test",
+				data: {},
+				success:function(data){ // success option
+	    			console.log(data.length);
+    			}
+    		});
+		});
+        </script>
     </head>
     <body id="page-top">
         <!-- Navigation-->
